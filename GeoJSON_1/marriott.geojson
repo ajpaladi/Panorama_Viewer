@@ -1,0 +1,56 @@
+{
+    "type": "FeatureCollection",
+    "features": [{
+        "type": "Feature",
+        "properties": {
+            "FID": 0,
+            "Path": "W:\\Operations\\Marriott\\MAR04290-01Courtyard Richmond West Flight Op\\Panoramas\\Panos_Final\\Pano_1.tif",
+            "Name": "Pano_1.tif",
+            "DateTime": "2020:02:04 12:38:54",
+            "Direction": -9999
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [-77.51175583, 37.59784319]
+        }
+    }, {
+        "type": "Feature",
+        "properties": {
+            "FID": 1,
+            "Path": "W:\\Operations\\Marriott\\MAR04290-01Courtyard Richmond West Flight Op\\Panoramas\\Panos_Final\\Pano_2.1.jpg",
+            "Name": "Pano_2.jpg",
+            "DateTime": "2020:02:04 12:40:15",
+            "Direction": -9999
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [-77.51145014, 37.59794447]
+        }
+    }, {
+        "type": "Feature",
+        "properties": {
+            "FID": 2,
+            "Path": "W:\\Operations\\Marriott\\MAR04290-01Courtyard Richmond West Flight Op\\Panoramas\\Panos_Final\\Pano_3.tif",
+            "Name": "Pano_3.tif",
+            "DateTime": "2020:02:04 12:42:51",
+            "Direction": -9999
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [-77.51214028, 37.59752639]
+        }
+    }, {
+        "type": "Feature",
+        "properties": {
+            "FID": 3,
+            "Path": "W:\\Operations\\Marriott\\MAR04290-01Courtyard Richmond West Flight Op\\Panoramas\\Panos_Final\\Pano_4.jpg",
+            "Name": "Pano_4.jpg",
+            "DateTime": "2020:02:04 12:44:35",
+            "Direction": -9999
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [-77.51225719, 37.59780811]
+        }
+    }]
+}

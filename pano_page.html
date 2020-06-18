@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Pano_Page</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.1/dist/leaflet.css" />
+        <script src="https://unpkg.com/leaflet@1.0.1/dist/leaflet.js"></script>
+        <script src="../leaflet-ajax-gh-pages/dist/leaflet.ajax.js"></script>
+        <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+        <link href='https://fonts.googleapis.com/css?family=Abel' rel='stylesheet'>
+        <link rel="stylesheet" href="/Leaflet.markercluster-1.4.1/dist/MarkerCluster.css" />
+        <link rel="stylesheet" href="/Leaflet.markercluster-1.4.1/dist/MarkerCluster.Default.css" />
+        <script src="/Leaflet.markercluster-1.4.1/dist/leaflet.markercluster-src.js"></script>
+        <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js'></script>
+        <link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css' rel='stylesheet' />
+        <script src="https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.js"></script>
+        <link href="https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.css" rel="stylesheet" />
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+        <script src="https://use.fontawesome.com/releases/v5.12.0/js/all.js"></script>
+        <link rel="stylesheet" href="/Leaflet.ExtraMarkers-master/dist/css/leaflet.extra-markers.min.css">
+        <script src="/Leaflet.ExtraMarkers-master/dist/js/leaflet.extra-markers.min.js"></script>
+        <style>
+             #header {
+                height: 130px;
+                background-color: whitesmoke;
+                opacity: 50;
+                background-image: url(https://www.beecreekphoto.com/images/xl/skyline-of-new-orleans-pano-DSC_7501.jpg);
+                background-size:cover;
+                background-position: 59% 33%;
+                margin-bottom: 4px;
+            }
+            h2 {
+                display: block;
+                line-height: 120px;
+                font-size: 4em;
+                font-weight: bold;
+                text-decoration: underline;
+                text-shadow: 0 0 15px #000000, 0 0 15px #000000;
+                color: whitesmoke;
+                font-family: "Abel"
+            }
+            #sidepanel {
+                height: 600px;
+                width: 500px;
+            }
+            #panoviews {
+                height: 600px;
+                width: 900px;
+            }
+            #maptab {
+               height: 35px;
+               width: 500px; 
+               background-color: white;
+            }
+            #panotab {
+                height: 35px;
+                width: 900px;
+                background-color: white;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="header" class="col-md-12">
+            <a href='https://www.marriott.com/default.mi' target='blank'><img src='https://peachstatehospitality.com/hotelgroup/wp-content/uploads/2016/05/CY_347x260.png' style="float:right;width:220px;height:160px;"></a>
+            <h2 class="text center">Courtyard Marriott: Covington</h2>
+        </div>
+        <div id="maptab" class="col-md-4">
+             <h4 class="text left">Map View</h4>
+        </div>
+        <div id="panotab" class="col-md-8">
+            <h4 class="text left">Panorama Viewer</h4>
+        </div>
+        <div id="sidepanel" class="col-md-6"></div>
+        <div id="panoviews" class="col-md-6">
+            <iframe src="https://marriottportal.s3.amazonaws.com/Covington_Panos/app-files/index.html" width="925" height="600" frameborder="0"></iframe>
+        </div>
+        
+        <script>
+             var backgroundLayer = L.tileLayer("https://api.mapbox.com/styles/v1/measure/ck76czr432vr61ip914z1sjls/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoibWVhc3VyZSIsImEiOiJjanV6dW00NjIxY3liNDNwZnc4eWozbjY0In0.zj7VWavAGgdjQpOwWoXDqA",{
+                minZoom: 4,
+                maxNativeZoom: 22,
+                maxZoom: 30,
+            });
+            
+            var mymap = L.map("sidepanel");
+            
+            mymap.setView([30.441497806, -90.0855287219999], 18);
+            
+            mymap.addLayer(backgroundLayer);
+            
+         //   var imageUrl = 'img/dallas.jpg',
+          //  imageBounds = [[28.441497806, -88.0855287219999], [38.441497806, -99.0855287219999]];
+         //   L.imageOverlay(imageUrl, imageBounds).addTo(mymap);
+            
+            var myIcon = L.icon({
+            iconUrl: 'png/one.png',
+            iconSize: [30, 30],
+            });
+            
+            var myIcon2 = L.icon({
+            iconUrl: 'png/two.png',
+            iconSize: [30, 30],
+            });
+            
+            var myIcon3 = L.icon({
+            iconUrl: 'png/three.png',
+            iconSize: [30, 30],
+            });
+            
+            var myIcon4 = L.icon({
+            iconUrl: 'png/four.png',
+            iconSize: [30, 30],
+            });
+            
+            var myIcon5 = L.icon({
+            iconUrl: 'png/five.png',
+            iconSize: [30, 30],
+            });
+            
+            var myIcon6 = L.icon({
+            iconUrl: 'png/six.png',
+            iconSize: [30, 30],
+            });
+            
+            var myIcon7 = L.icon({
+            iconUrl: 'png/seven.png',
+            iconSize: [30, 30],
+            });
+            
+            var myIcon8 = L.icon({
+            iconUrl: 'png/eight.png',
+            iconSize: [30, 30],
+            });
+            
+            var myIcon9 = L.icon({
+            iconUrl: 'png/nine.png',
+            iconSize: [30, 30],
+            });
+            
+            var zocaloMarker1 = L.marker([30.441794583, -90.085218861], {icon: myIcon}).bindPopup("<h3 class='text-center '>Pano 1</h3><a href='https://marriottportal.s3.amazonaws.com/Panos/Covington_Pano_1/app-files/index.html' target='blank'><img src='https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSdfQiSSZ8qw0qembkeEipU0-2SNFV7qnqA3Y1phhqf_ooPCKHJ' width='100px'></a>");
+            
+             zocaloMarker2 = L.marker([30.442270278, -90.085699667], {icon: myIcon2}).bindPopup("<h3 class='text-center '>Pano 2</h3><a href='https://marriottportal.s3.amazonaws.com/Panos/Covington_Pano_2/app-files/index.html' target='blank'><img src='https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSdfQiSSZ8qw0qembkeEipU0-2SNFV7qnqA3Y1phhqf_ooPCKHJ' width='100px'></a>");
+            
+             zocaloMarker3 = L.marker([30.4409206940001, -90.085144417], {icon: myIcon3}).bindPopup("<h3 class='text-center '>Pano 3</h3><a href='https://marriottportal.s3.amazonaws.com/Panos/Covington_Pano_3/app-files/index.html' target='blank'><img src='https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSdfQiSSZ8qw0qembkeEipU0-2SNFV7qnqA3Y1phhqf_ooPCKHJ' width='100px'></a>");
+            
+             zocaloMarker4 = L.marker([30.441497806, -90.0855287219999], {icon: myIcon4}).bindPopup("<h3 class='text-center '>Pano 4</h3><a href='https://marriottportal.s3.amazonaws.com/Panos/Covington_Pano_4/app-files/index.html' target='blank'><img src='https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSdfQiSSZ8qw0qembkeEipU0-2SNFV7qnqA3Y1phhqf_ooPCKHJ' width='100px'></a>");
+            
+             zocaloMarker5 = L.marker([30.4417300280001, -90.083625583], {icon: myIcon5}).bindPopup("<h3 class='text-center '>Pano 5</h3><a href='https://marriottportal.s3.amazonaws.com/Panos/Covington_Pano_5/app-files/index.html' target='blank'><img src='https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSdfQiSSZ8qw0qembkeEipU0-2SNFV7qnqA3Y1phhqf_ooPCKHJ' width='100px'></a>");
+            
+             zocaloMarker6 = L.marker([30.4405482780001, -90.0848442499999], {icon: myIcon6}).bindPopup("<h3 class='text-center '>Pano 6</h3><a href='https://marriottportal.s3.amazonaws.com/Panos/Covington_Pano_6/app-files/index.html' target='blank'><img src='https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSdfQiSSZ8qw0qembkeEipU0-2SNFV7qnqA3Y1phhqf_ooPCKHJ' width='100px'></a>");
+            
+            zocaloMarker7 = L.marker([30.4406395280001, -90.085844972], {icon: myIcon7}).bindPopup("<h3 class='text-center '>Pano 7</h3><a href='https://marriottportal.s3.amazonaws.com/Panos/Covington_Pano_7/app-files/index.html' target='blank'><img src='https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSdfQiSSZ8qw0qembkeEipU0-2SNFV7qnqA3Y1phhqf_ooPCKHJ' width='100px'></a>");
+            
+            zocaloMarker8 = L.marker([30.4414098890001, -90.0847406669999], {icon: myIcon8}).bindPopup("<h3 class='text-center '>Pano 8</h3><a href='https://marriottportal.s3.amazonaws.com/Panos/Covington_Pano_8/app-files/index.html' target='blank'><img src='https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSdfQiSSZ8qw0qembkeEipU0-2SNFV7qnqA3Y1phhqf_ooPCKHJ' width='100px'></a>");
+            
+            zocaloMarker9 = L.marker([30.4423412780001, -90.0852767219999], {icon: myIcon9}).bindPopup("<h3 class='text-center '>Pano 9</h3><a href='https://marriottportal.s3.amazonaws.com/Panos/Covington_Pano_9/app-files/index.html' target='blank'><img src='https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSdfQiSSZ8qw0qembkeEipU0-2SNFV7qnqA3Y1phhqf_ooPCKHJ' width='100px'></a>");
+            
+            var panos = L.layerGroup([zocaloMarker1, zocaloMarker2, zocaloMarker3, zocaloMarker4, zocaloMarker5, zocaloMarker6, zocaloMarker7, zocaloMarker8, zocaloMarker9]).addTo(mymap);
+            
+            var basemap = {
+            "Mapbox Satellite": backgroundLayer,
+            };
+            
+            var nice = {
+            "panoramas": panos,
+            };
+            
+            L.control.layers(basemap, nice).addTo(mymap);
+        
+        </script>
+    </body>
+    
